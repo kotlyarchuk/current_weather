@@ -36,13 +36,24 @@ $(document).ready(function(){
             $(".city").html(weather["city"]);
 
             temp = tempConvert(weather["temp"], "K");
-            if( temp > 0 ) {
-                $(".temp").html( "+" + temp );
-            } else if ( temp < 0 ){
-                $(".temp").html( "-" + temp );
-            }
+            setTemp(temp);
+            $(".switcher").html("<i class='wi wi-celsius'></i>");
 
-            $(".switcher").html(current_grade);
+            $(".switcher").on("click", function(){
+                if (current_grade == "C"){
+                    current_grade = "F";
+                    temp = tempConvert(temp, "C");
+                    setTemp(temp);
+                    $(".switcher").html("<i class='wi wi-fahrenheit'></i>");
+                } else if(current_grade == "F"){
+                    current_grade = "C";
+                    temp = tempConvert(temp, "F");
+                    setTemp(temp);
+                    $(".switcher").html("<i class='wi wi-celsius'></i>");
+                }
+            });
+
+
 
             $(".icon").html(setIcon(weather["type"]));
             $(".desc").html(weather["desc"].replace(/\b\w/g, l => l.toUpperCase()));
@@ -77,11 +88,11 @@ $(document).ready(function(){
 
     function tempConvert(temp, grade){
         if(grade === "C"){
-            return (temp*1.8) + 32;
+            return Math.round((temp*1.8) + 32);
         } else if (grade === "F") {
-            return (temp-32)/1.8;
+            return Math.round((temp-32)/1.8);
         } else if (grade === "K") {
-            return temp - 273.15;
+            return Math.round(temp - 273.15);
         } else {
             return "Temp error";
         }
@@ -93,7 +104,18 @@ $(document).ready(function(){
             case "clouds":
                 return "<i class='wi wi-day-cloudy'></i>"
                 break;
+            case "rain":
+                return "<i class='wi wi-day-rain'></i>"
+                break;
             default:
 
+        }
+    }
+
+    function setTemp(temp){
+        if( temp > 0 ) {
+            $(".temp").html( "+" + temp );
+        } else if ( temp < 0 ){
+            $(".temp").html( "-" + temp );
         }
     }
