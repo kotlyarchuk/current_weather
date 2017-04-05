@@ -107,6 +107,10 @@ $(document).ready(function(){
             case "rain":
                 return "<i class='wi wi-day-rain'></i>"
                 break;
+            case "clear":
+                return "<i class='wi wi-day-sunny'></i>"
+                break;
+            //ADD ALL CASES FOR ICONS
             default:
 
         }
