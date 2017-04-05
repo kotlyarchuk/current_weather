@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current local weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+   <link rel="stylesheet" href="css/weather.css" />
+</head>
+<body>
+
+    <div class="container pt-5 text-center">
+        <div>
+            <h1 class="display-4 city"></h1>
+        </div>
+        <div class="my-4">
+            <h1 class="display-1 d-inline mr-2 temp"></h1><span class="switcher"></span>
+            <p class="mt-4 mb-0 icon"></p>
+            <p class="desc"></p>
+        </div>
+        <div class="additional text-left">
+            <ul class="additional_list">
+                <li>Sunrise: <span class="sunrise text-muted"></span></li>
+                <li>Sunset: <span class="sunset text-muted"></span></li>
+                <li>Humidity: <span class="humidity text-muted"></span><span class="text-muted">%</span></li>
+                <li>Wind speed: <span class="wind text-muted"></span><span class="text-muted"> m/s</span></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+    <script
+      src="http://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <script src="js/weather.js"></script>
+</body>
+</html>
